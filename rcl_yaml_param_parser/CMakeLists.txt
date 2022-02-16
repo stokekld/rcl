@@ -2,6 +2,9 @@ cmake_minimum_required(VERSION 3.5)
 
 project(rcl_yaml_param_parser)
 
+include(CheckLibraryExists)
+check_library_exists(atomic __atomic_load_8 "" HAVE_LIBATOMICS)
+
 find_package(ament_cmake_ros REQUIRED)
 find_package(rcutils REQUIRED)
 find_package(libyaml_vendor REQUIRED)
